@@ -1,0 +1,33 @@
+{
+  "name": "smogon-stats-viewer",
+  "version": "0.0.1",
+  "author": {
+    "name": "Agustin San Roman",
+    "email": "agustinsanromanguzman@gmail.com",
+    "url": "https://github.com/asanrom"
+  },
+  "scripts": {
+    "start": "node usage-stats update && node usage-stats upgrade 2",
+    "test": "eslint --cache *.js updater/"
+  },
+  "main": "updater.js",
+  "bin": "updater.js",
+  "engines": {
+    "node": "> 4.0.0"
+  },
+  "dependencies": {
+    "commander": "2.10.0",
+	"node-static": "0.7.9"
+  },
+  "description": "Smogon usage stats viewer",
+  "homepage": "https://github.com/asanrom/Smogon-Stats-Viewer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asanrom/Smogon-Stats-Viewer.git"
+  },
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "4.1.1"
+  }
+}
