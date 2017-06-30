@@ -42,5 +42,4 @@ exports.check = function () {
 exports.checkAndUpdate = function () {
 	let months = exports.check();
 	FileSystem.writeFileSync(Path.resolve(__dirname, "../data/months.json"), JSON.stringify(months));
-	console.log("DONE: Months list checked.");
 };

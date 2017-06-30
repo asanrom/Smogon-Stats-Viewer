@@ -26,7 +26,7 @@ function upgradeNext() {
 	});
 }
 
-exports.start = function (num) {
+exports.start = function (num, doClear) {
 	if (num === "all") {
 		console.log("Upgrade All (started)");
 	} else {
@@ -44,14 +44,25 @@ exports.start = function (num) {
 
 	if (num === "all") num = months_all.length;
 
-	let upgradeList = [];
+	let upgradeList = [], clearList = [];
 
 	let j = months_all.length - 1;
 	for (let i = 0; i < num && i < months_all.length; i++) {
-		if (months.indexOf(months_all[j].id) === -1) {
-			upgradeList.push(months_all[j].id);
-		}
+		upgradeList.push(months_all[j].id);
 		j--;
+	}
+	for (let i = 0; i < months.length; i++) {
+		if (upgradeList.indexOf(months[i]) === -1) {
+			clearList.push(months[i]);
+		}
+	}
+
+	if (doClear && clearList.length > 0) {
+		console.log("Removing old stats files...");
+		for (let month of clearList) {
+			console.log("DELETE: " + month);
+			require('rimraf').sync(Path.resolve(__dirname, '../data/months/' + month + '/'));
+		}
 	}
 
 	if (upgradeList.length === 0) {

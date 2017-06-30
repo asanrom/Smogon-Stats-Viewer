@@ -7,17 +7,18 @@
     "url": "https://github.com/asanrom"
   },
   "scripts": {
-    "start": "node usage-stats update && node usage-stats upgrade 2",
+    "start": "node usage-stats update && node usage-stats --clear upgrade 2 && node usage-stats check",
     "test": "eslint --cache *.js updater/"
   },
-  "main": "updater.js",
-  "bin": "updater.js",
+  "main": "usage-stats.js",
+  "bin": "usage-stats.js",
   "engines": {
     "node": "> 4.0.0"
   },
   "dependencies": {
     "commander": "2.10.0",
-	"node-static": "0.7.9"
+	"node-static": "0.7.9",
+	"rimraf": "2.6.1"
   },
   "description": "Smogon usage stats viewer",
   "homepage": "https://github.com/asanrom/Smogon-Stats-Viewer",

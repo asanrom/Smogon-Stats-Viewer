@@ -58,7 +58,16 @@ Program.arguments('<command>').action(command => {
 	}
 });
 
+Program.option('--clear', 'Remove old usage stats files');
+
 /* Commands */
+
+Program.command('update')
+	.description('update months list and format names')
+	.action(() => {
+		require(Path.resolve(__dirname, "updater", "update-names.js")).start();
+		require(Path.resolve(__dirname, "updater", "update-months.js")).start();
+	});
 
 Program.command('update-names')
 	.description('update format names')
@@ -72,29 +81,22 @@ Program.command('update-months')
 		require(Path.resolve(__dirname, "updater", "update-months.js")).start();
 	});
 
-Program.command('update')
-	.description('update months list and format names')
-	.action(() => {
-		require(Path.resolve(__dirname, "updater", "update-names.js")).start();
-		require(Path.resolve(__dirname, "updater", "update-months.js")).start();
+Program.command('upgrade <number|all>')
+	.description('loads usage stats for last months')
+	.action(param => {
+		require(Path.resolve(__dirname, "updater", "upgrade.js")).start(param, Program.clear);
 	});
 
-Program.command('load <month>')
+Program.command('get <month>')
 	.description('loads usage stats of a month')
 	.action(month => {
 		require(Path.resolve(__dirname, "updater", "load-month.js")).start(month);
 	});
 
-Program.command('upgrade <months|all>')
-	.description('loads usage stats for last months')
-	.action(param => {
-		require(Path.resolve(__dirname, "updater", "upgrade.js")).start(param);
-	});
-
 Program.command('check')
 	.description('checks downloaded stats')
 	.action(() => {
-		require(Path.resolve(__dirname, "updater", "update-months.js")).checkAndUpdate();
+		require(Path.resolve(__dirname, "updater", "check.js")).start();
 	});
 
 Program.command('test <port>')

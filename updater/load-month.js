@@ -47,6 +47,19 @@ exports.loadMonth = function (month, callback) {
 	});
 };
 
+exports.checkMonth = function (month, callback) {
+	if (!callback) callback = function () {};
+	console.log("Parsing month: " + month);
+	let data;
+	try {
+		data = require(Path.resolve(__dirname, "../data/months/", month, "formats.json"));
+	} catch (err) {
+		return callback(err);
+	}
+	let loader = new Loader(month, data, callback);
+	loader.start();
+};
+
 exports.start = function (month) {
 	if (!month) {
 		console.log("Invalid month.");
