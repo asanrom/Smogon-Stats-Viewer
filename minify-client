@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+/* Minify client scripts */
+
+'use strict';
+
+const Path = require('path');
+const FileSystem = require('fs');
+const Compressor = require('node-minify');
+
+const JS_Files_Path = Path.resolve(__dirname, 'js/');
+const CSS_Files_Path = Path.resolve(__dirname, 'style/');
+
+let files;
+
+files = FileSystem.readdirSync(JS_Files_Path);
+
+for (let file of files) {
+	if ((/\.js$/).test(file) && !((/-min\.js$/).test(file))) {
+		let newfile = file.substr(0, file.length - 3) + "-min.js";
+		Compressor.minify({
+			compressor: 'uglifyjs',
+			input: Path.resolve(JS_Files_Path, file),
+			output: Path.resolve(JS_Files_Path, newfile),
+			callback: function (err, min) {
+				if (err) {
+					console.error(err);
+				}
+			}
+		});
+	}
+}
+
+files = FileSystem.readdirSync(CSS_Files_Path);
+
+for (let file of files) {
+	if ((/\.css$/).test(file) && !((/-min\.css$/).test(file))) {
+		let newfile = file.substr(0, file.length - 4) + "-min.css";
+		Compressor.minify({
+			compressor: 'clean-css',
+			input: Path.resolve(CSS_Files_Path, file),
+			output: Path.resolve(CSS_Files_Path, newfile),
+			callback: function (err, min) {
+				if (err) {
+					console.error(err);
+				}
+			}
+		});
+	}
+}
+
+const Pokedex_File = Path.resolve(__dirname, "js/lib/pokedex.js");
+const Pokedex_File_Min = Path.resolve(__dirname, "js/lib/pokedex-min.js");
+
+let pokedex = require(Pokedex_File).BattlePokedex;
+let newPokedex = {};
+
+for (let poke in pokedex) {
+	newPokedex[poke] = {num: pokedex[poke].num};
+}
+
+FileSystem.writeFileSync(Pokedex_File_Min, "window.BattlePokedex = " + JSON.stringify(newPokedex) + ";");

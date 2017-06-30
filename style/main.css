@@ -1,0 +1,244 @@
+/* Structure */
+
+.body {
+	word-wrap: break-word;
+}
+
+.page-body {
+	margin-top: 50px;
+}
+
+.main-container {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 15px;
+	padding-left: 15px;
+	
+	background-color: #bdc9e1;
+}
+
+.source-container {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 15px;
+	padding-left: 15px;
+	
+	background-color: #bdc9e1;
+	margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+	.expendable {
+		display:none;
+	}
+}
+
+.container {
+	text-align: left;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+	.container {
+		width: 540px;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 720px;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		width: 960px;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 1140px;
+		max-width: 100%;
+	}
+}
+
+/* Navigation Bar */
+
+.navigation-bar {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+
+	background-color: #202072;
+	color: #FFFFFF;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	font-size: 18px;
+}
+
+.navbar-span {
+	margin-right: 15px;
+}
+
+.navbar-span-right {
+	position: fixed;
+	top: 7px;
+	right: 15px;
+}
+
+.navigation-bar-hidden {
+	display: none;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 15px;
+	padding-left: 15px;
+
+	background-color: #202072;
+	color: #FFFFFF;
+	font-size: 18px;
+}
+
+@media (max-width: 768px) {
+	.navbar-span {
+		display: block;
+		margin: 5px;
+		float: left;
+	}
+}
+
+#select-month {
+	min-width: 7rem;
+}
+
+#select-format {
+	min-width: 8rem;
+}
+
+#select-cutline {
+	min-width: 3.2rem;
+}
+
+
+/* Loading pop-up */
+
+.loading-div {
+	position:fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.5);
+	color: #999999;
+	z-index: 1;
+	display: none;
+}
+
+/* Title */
+
+.poke-title {
+	width: 40%;
+	float:left;
+	text-align:center
+}
+
+.title-format {
+	width: 100%;
+	text-align: center;
+}
+
+.subtitle {
+	width: 50%;
+	text-align: center;
+	float: left;
+}
+
+/* Usage Tables */
+
+.usage-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.usage-table tr {
+	background-color: #f1eef6;
+	border: solid medium #bdc9e1;
+}
+
+.usage-table td {
+	padding: .75rem;
+}
+
+.tr-head {
+	background-color: #045a8d !important;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.alt-table-color .tr-head {
+	background-color:#253494 !important;
+}
+
+#spreads-table-min {
+	display:none;
+}
+
+@media (max-width: 768px) {
+	#spreads-table {
+		display:none;
+	}
+	#spreads-table-min {
+		display:table;
+		width: 100%;
+	}
+}
+
+.td-bold {
+	font-weight: bold;
+}
+
+.stat-td {
+	width: 2rem;
+	text-align: center;
+}
+
+.slash-td {
+	width:2px;
+}
+
+.usage-percent-td {
+	font-weight: bold;
+	text-align: right;
+}
+
+/* Icons and Links */
+
+.poke-option-link {
+	width: 30%;
+	float:left;
+}
+
+.poke-link {
+	font-weight: bold;
+	margin-left: 15px;
+}
+
+.poke-icon {
+    content: '';
+	display: inline-block;
+	float:left;
+    width: 40px;
+    height: 30px;
+    margin-top: -3px;
+}

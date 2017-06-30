@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link rel="stylesheet" href="./style/main-min.css" />
+		
+		<script type="text/javascript" src="./js/lib/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="./js/lib/pokedex-min.js"></script>
+		<script type="text/javascript" src="./resources/names-min.js"></script>
+		<script type="text/javascript" src="./js/tools-min.js"></script>
+		<script type="text/javascript" src="./js/navbar-min.js"></script>
+		<script type="text/javascript" src="./js/usage-viewer-min.js"></script>
+		<script type="text/javascript" src="./js/events-min.js"></script>
+
+		<title>Smogon Usage Stats</title>
+	</head>
+
+	<body>
+		<div id="loading-div" class="loading-div" align="center">
+			<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+			<h1 id="loading-text">Loading...</h1>
+		</div>
+
+		<div id="navigation-bar" class="navigation-bar" align="center">
+			<div class="container">
+				<span class="navbar-span">
+					Month:&nbsp;
+					<select id="select-month" class="navbar-select" onchange="UsageViewer.onChangeSelectedMonth();">
+						<option value="">&lt;Select a month&gt;</option>
+					</select>
+				</span>
+				<span class="navbar-span">
+					Format:&nbsp;
+					<select id="select-format" class="navbar-select" onchange="UsageViewer.onChangeSelectedFormat();">
+						<option value="">&lt;Select a format&gt;</option>
+					</select>
+				</span>
+				<span class="navbar-span">
+					Cutline:&nbsp;
+					<select id="select-cutline" class="navbar-select">
+						<option value="">&lt;Rank&gt;</option>
+					</select>
+				</span>
+				<span class="navbar-span">
+					<button id="navbar-go-button" onclick="UsageViewer.viewStats();">Set Params</button>
+				</span>
+				<span class="navbar-span-right">
+					<button id="navbar-hide-button" onclick="NavigationBar.hide();">Collapse</button>
+				</span>
+			</div>
+		</div>
+
+		<div id="navigation-bar-hidden" class="navigation-bar-hidden">
+			<button id="navbar-show-button" onclick="NavigationBar.show();">Expand</button>
+		</div>
+
+		<div class="page-body" align="center">
+			<div id="main-container" class="container main-container"></div>
+	
+			<div class="container source-container">
+				<b>Smogon Usage Stats, Source: </b> <a href="http://www.smogon.com/stats/" target="_blank">http://www.smogon.com/stats/</a>
+			</div>
+		</div>
+	</body>
+</html>

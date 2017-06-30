@@ -7,6 +7,7 @@
     "url": "https://github.com/asanrom"
   },
   "scripts": {
+    "build": "eslint --fix --cache *.js updater/ && node minify-client",
     "start": "node usage-stats update && node usage-stats --clear upgrade 2 && node usage-stats check",
     "test": "eslint --cache *.js updater/"
   },
@@ -29,6 +30,7 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "eslint": "4.1.1"
+    "eslint": "4.1.1",
+	"node-minify": "2.0.4"
   }
 }
