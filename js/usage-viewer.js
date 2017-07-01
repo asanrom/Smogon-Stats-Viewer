@@ -211,8 +211,8 @@ window.UsageViewer = {
 			Tools.wget('./data/months/' + this.smonth + '/formats.json', function (data) {
 				if (typeof data === "string") data = JSON.parse(data);
 				this.sformats = data;
+				var format = NavigationBar.getSelectedFormat();
 				NavigationBar.setFormats(this.sformats);
-				var format = this.format;
 				if (!format || !this.sformats[format]) format = "gen7ou";
 				if (!this.sformats[format]) {
 					for (var k in this.sformats) {
@@ -221,8 +221,8 @@ window.UsageViewer = {
 					}
 				}
 				NavigationBar.setSelectedFormat(format);
+				var cutline = NavigationBar.getSelectedCutline();
 				NavigationBar.setCutlines(this.sformats[format]);
-				var cutline = this.cutline;
 				if (cutline === null || this.sformats[format].cuts.indexOf(cutline) === -1) {
 					cutline = this.sformats[format].dcut;
 				}
