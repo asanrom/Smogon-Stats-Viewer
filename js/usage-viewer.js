@@ -30,7 +30,9 @@ window.UsageViewer = {
 			NavigationBar.hide();
 		}
 		
-		Tools.wget('./data/months.json', function (data) {
+		var date = new Date();
+		
+		Tools.wget('./data/months.json?date=' + date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear(), function (data) {
 			if (typeof data === "string") data = JSON.parse(data);
 			this.months = data.list;
 			NavigationBar.setMonths(this.months);
@@ -335,7 +337,7 @@ window.UsageViewer = {
 		if (!detail) {
 			buf += '<div align="center"><h1>Not Found: &quot;' + escapeHTML(this.poke) + '&quot;</h1></div>';
 			buf += '<p class="poke-option-link"><a name="back-link" href="' + this.getPokeHref(null) + '">&lt;&lt; Back to the pokemon list</a></p>';
-			buf += '<hr width="100%" />';
+			buf += '<br /><br />';
 			this.setHTML(buf);
 			return;
 		}
@@ -346,7 +348,7 @@ window.UsageViewer = {
 		buf += '<h2 class="poke-title">#' + detail.pos + ', ' + escapeHTML(detail.usage.name) + '</h2>';
 		buf += '<p class="poke-option-link" style="text-align:right;"><a href="http://dex.pokemonshowdown.com/pokemon/' +
 			this.poke + '" target="_blank">Go to the Pokedex</a></p></div>';
-		buf += '<hr width="100%" />';
+		buf += '<br /><br />';
 		
 		/* Usage */
 		buf += '<table class="usage-table" border="0">';
@@ -365,7 +367,7 @@ window.UsageViewer = {
 			buf += '<tr><td class="td-bold">-</td><td class="usage-percent-td">-</td></tr>';
 		} else {
 			for (var i = 0; i < detail.data.abilities.length; i++) {
-				buf += '<tr><td class="td-bold">' + escapeHTML(detail.data.abilities[i].name) +
+				buf += '<tr><td class="td-bold">' + Tools.getAbilityLink(detail.data.abilities[i].name) +
 					'</td><td class="usage-percent-td">' + Tools.decimalFormat(detail.data.abilities[i].usage, 2, 2) + '%</td></tr>';
 			}
 		}
@@ -378,7 +380,9 @@ window.UsageViewer = {
 			buf += '<tr><td class="td-bold">-</td><td class="usage-percent-td">-</td></tr>';
 		} else {
 			for (var i = 0; i < detail.data.moves.length; i++) {
-				buf += '<tr><td class="td-bold">' + escapeHTML(detail.data.moves[i].name) +
+				buf += '<tr><td class="td-bold">' + Tools.getMoveLink(detail.data.moves[i].name) +
+					' ' + Tools.getMoveTypeSprite(detail.data.moves[i].name) + 
+					' ' + Tools.getMoveCategorySprite(detail.data.moves[i].name) +
 					'</td><td class="usage-percent-td">' + Tools.decimalFormat(detail.data.moves[i].usage, 2, 2) + '%</td></tr>';
 			}
 		}
@@ -391,7 +395,8 @@ window.UsageViewer = {
 			buf += '<tr><td class="td-bold">-</td><td class="usage-percent-td">-</td></tr>';
 		} else {
 			for (var i = 0; i < detail.data.items.length; i++) {
-				buf += '<tr><td class="td-bold">' + escapeHTML(detail.data.items[i].name) +
+				buf += '<tr><td class="td-bold">' + Tools.getItemSprite(detail.data.items[i].name) + " " +
+					Tools.getItemLink(detail.data.items[i].name) +
 					'</td><td class="usage-percent-td">' + Tools.decimalFormat(detail.data.items[i].usage, 2, 2) + '%</td></tr>';
 			}
 		}
@@ -414,7 +419,7 @@ window.UsageViewer = {
 			buf += '<td class="usage-percent-td">-</td></tr>';
 		} else {
 			for (var i = 0; i < detail.data.spreads.length; i++) {
-				buf += '<tr><td class="td-bold">' + escapeHTML(detail.data.spreads[i].nature) + '</td>';
+				buf += '<tr><td class="td-bold">' + Tools.getNatureSpan(detail.data.spreads[i].nature) + '</td>';
 				buf += '<td class="stat-td">' + (detail.data.spreads[i].evs.hp === null ? '?' : (detail.data.spreads[i].evs.hp || "0")) + '</td><td class="slash-td">/</td>';
 				buf += '<td class="stat-td">' + (detail.data.spreads[i].evs.atk === null ? '?' : (detail.data.spreads[i].evs.atk || "0")) + '</td><td class="slash-td">/</td>';
 				buf += '<td class="stat-td">' + (detail.data.spreads[i].evs.def === null ? '?' : (detail.data.spreads[i].evs.def || "0")) + '</td><td class="slash-td">/</td>';
@@ -432,7 +437,7 @@ window.UsageViewer = {
 			buf += '<tr class="tr-head"><td class="td-bold">-</td><td class="usage-percent-td">-</td></tr>';
 		} else {
 			for (var i = 0; i < detail.data.spreads.length; i++) {
-				buf += '<tr><td class="td-bold">' + escapeHTML(detail.data.spreads[i].nature) + '';
+				buf += '<tr><td class="td-bold">' + Tools.getNatureSpan(detail.data.spreads[i].nature) + '';
 				buf += ' ' + (detail.data.spreads[i].evs.hp === null ? '?' : (detail.data.spreads[i].evs.hp || "0")) + ' / ';
 				buf += (detail.data.spreads[i].evs.atk === null ? '?' : (detail.data.spreads[i].evs.atk || "0")) + ' / ';
 				buf += (detail.data.spreads[i].evs.def === null ? '?' : (detail.data.spreads[i].evs.def || "0")) + ' / ';

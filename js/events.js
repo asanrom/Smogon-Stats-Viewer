@@ -10,9 +10,11 @@ $(document).ready(function () {
 				UsageViewer.loadPokemonData(function () {
 					UsageViewer.showPokemonDetail();
 					NavigationBar.setLoading(false);
+					window.scrollTo(0, 0);
 				});
 			} else {
 				UsageViewer.showPokemonDetail();
+				window.scrollTo(0, 0);
 			}
 			window.history.pushState({}, null, elem.prop('href'));
 			event.preventDefault();
@@ -21,6 +23,7 @@ $(document).ready(function () {
 			NavigationBar.setLoading();
 			UsageViewer.showPokemonList();
 			NavigationBar.setLoading(false);
+			window.scrollTo(0, 0);
 			window.history.pushState({}, null, elem.prop('href'));
 			event.preventDefault();
 		}
@@ -31,8 +34,10 @@ $(document).ready(function () {
 		var elem = $(event.target);
 		if (elem.id === "select-month") {
 			UsageViewer.onChangeSelectedMonth();
+			window.scrollTo(0, 0);
 		} else if (elem.id === "select-format") {
 			UsageViewer.onChangeSelectedFormat();
+			window.scrollTo(0, 0);
 		}
 	});
 	

@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
 		<link rel="stylesheet" href="./style/main-min.css" />
 		
 		<script type="text/javascript" src="./js/lib/jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="./js/lib/pokedex-min.js"></script>
-		<script type="text/javascript" src="./resources/names-min.js"></script>
-		<script type="text/javascript" src="./js/tools-min.js"></script>
-		<script type="text/javascript" src="./js/navbar-min.js"></script>
-		<script type="text/javascript" src="./js/usage-viewer-min.js"></script>
-		<script type="text/javascript" src="./js/events-min.js"></script>
+		<script type="text/javascript" src="./js/lib/pokedex-min.js?v0.2.0"></script>
+		<script type="text/javascript" src="./js/lib/moves-min.js?v0.2.0"></script>
+		<script type="text/javascript" src="./js/lib/items-min.js?v0.2.0"></script>
+		<script type="text/javascript" src="./resources/names-min.js?v0.2.0"></script>
+		<script type="text/javascript" src="./js/tools-min.js?v0.2.0"></script>
+		<script type="text/javascript" src="./js/navbar-min.js?v0.2.0"></script>
+		<script type="text/javascript" src="./js/usage-viewer-min.js?v0.2.0"></script>
+		<script type="text/javascript" src="./js/events-min.js?v0.2.0"></script>
 
 		<title>Smogon Usage Stats</title>
 	</head>
@@ -24,42 +27,49 @@
 		<div id="navigation-bar" class="navigation-bar" align="center">
 			<div class="container">
 				<span class="navbar-span">
-					Month:&nbsp;
-					<select id="select-month" class="navbar-select" onchange="UsageViewer.onChangeSelectedMonth();">
+					<span class="option-title">Month:</span>&nbsp;&nbsp;
+					<select id="select-month" class="navbar-select" onchange="UsageViewer.onChangeSelectedMonth();UsageViewer.viewStats();">
 						<option value="">&lt;Select a month&gt;</option>
 					</select>
 				</span>
 				<span class="navbar-span">
-					Format:&nbsp;
-					<select id="select-format" class="navbar-select" onchange="UsageViewer.onChangeSelectedFormat();">
+					<span class="option-title">Format:</span>&nbsp;
+					<select id="select-format" class="navbar-select" onchange="UsageViewer.onChangeSelectedFormat();UsageViewer.viewStats();">
 						<option value="">&lt;Select a format&gt;</option>
 					</select>
 				</span>
 				<span class="navbar-span">
-					Cutline:&nbsp;
-					<select id="select-cutline" class="navbar-select">
+					<span class="option-title">Cutline:</span>&nbsp;
+					<select id="select-cutline" class="navbar-select" onchange="UsageViewer.viewStats();">
 						<option value="">&lt;Rank&gt;</option>
 					</select>
 				</span>
-				<span class="navbar-span">
-					<button id="navbar-go-button" onclick="UsageViewer.viewStats();">Set Params</button>
-				</span>
 				<span class="navbar-span-right">
-					<button id="navbar-hide-button" onclick="NavigationBar.hide();">Collapse</button>
+					<button title="Collapse navigation bar" id="navbar-hide-button" onclick="NavigationBar.hide();"><b>-</b></button>
 				</span>
 			</div>
 		</div>
 
 		<div id="navigation-bar-hidden" class="navigation-bar-hidden">
-			<button id="navbar-show-button" onclick="NavigationBar.show();">Expand</button>
+			<button title="Expand navigation bar" id="navbar-show-button" onclick="NavigationBar.show();"><b>+</b></button>
 		</div>
 
 		<div class="page-body" align="center">
 			<div id="main-container" class="container main-container"></div>
-	
 			<div class="container source-container">
-				<b>Smogon Usage Stats, Source: </b> <a href="http://www.smogon.com/stats/" target="_blank">http://www.smogon.com/stats/</a>
+				<p><b><a target="_blank" href="https://github.com/asanrom/Smogon-Stats-Viewer">Smogon Usage Stats Viewer</a></b>, Copyright (c) Agustin San Roman (asanrom), <a target="_blank" href="https://github.com/asanrom/Smogon-Stats-Viewer/blob/master/LICENSE">MIT License</a>.</p>
+				<p>Smogon Usage Stats are provided by <b>Smogon University</b> (<a href="http://www.smogon.com/stats/" target="_blank">http://www.smogon.com/stats/</a>).</p>
+				<p>Pokemon data and sprites are taken from <b>Pokemon Showdown</b>, Copyright (c) Guangcong Luo (Zarel).</p>
+				<p>Pokemon is Copyright (c) of Nintendo.</p>
 			</div>
 		</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-103230286-1', 'auto');
+  ga('send', 'pageview');
+</script>
 	</body>
 </html>

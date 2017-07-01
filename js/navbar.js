@@ -4,13 +4,13 @@ window.NavigationBar = {
 	show: function () {
 		$('#navigation-bar-hidden').css({display: 'none'});
 		$('#navigation-bar').css({display: 'inherit'});
-		$('.page-body').css({'margin-top': '50px'});
+		$('.page-body').css({'margin-top': '5rem'});
 	},
 	
 	hide: function () {
 		$('#navigation-bar').css({display: 'none'});
 		$('#navigation-bar-hidden').css({display: 'inherit'});
-		$('.page-body').css({'margin-top': '15px'});
+		$('.page-body').css({'margin-top': '1rem'});
 	},
 	
 	setLoading: function (flag) {
@@ -55,8 +55,10 @@ window.NavigationBar = {
 	
 	setCutlines: function (format) {
 		var buf = '';
-		for (var i = 0; i < format.cuts.length; i++) {
-			buf += '<option value="' + format.cuts[i] + '">' + format.cuts[i] + '</option>';
+		if (format && format.cuts) {
+			for (var i = 0; i < format.cuts.length; i++) {
+				buf += '<option value="' + format.cuts[i] + '">' + format.cuts[i] + '</option>';
+			}
 		}
 		$('#select-cutline').html(buf);
 	},

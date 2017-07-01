@@ -4,10 +4,10 @@
 
 const Path = require('path');
 const FileSystem = require('fs');
-const Http = require('http');
+const Http = require('https');
 const Parser = require(Path.resolve(__dirname, "parse-file.js"));
 
-const Smogon_Stats_URL = "http://www.smogon.com/stats/";
+const Smogon_Stats_URL = "https://www.smogon.com/stats/";
 const Months_File = Path.resolve(__dirname, "../data/months-available.json");
 
 exports.start = function () {

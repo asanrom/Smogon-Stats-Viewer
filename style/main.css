@@ -1,30 +1,31 @@
 /* Structure */
 
 .body {
+	font-size: 1rem;
 	word-wrap: break-word;
 }
 
 .page-body {
-	margin-top: 50px;
+	margin-top: 5rem;
 }
 
 .main-container {
-	padding-top: 7px;
-	padding-bottom: 7px;
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
+	padding-right: 1.2rem;
+	padding-left: 1.2rem;
 	
 	background-color: #bdc9e1;
 }
 
 .source-container {
-	padding-top: 7px;
-	padding-bottom: 7px;
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-top: 0.5rem;
+	padding-bottom:0.5rem;
+	padding-right: 1.2rem;
+	padding-left: 1.2rem;
 	
 	background-color: #bdc9e1;
-	margin-top: 15px;
+	margin-top: 1.2rem;
 }
 
 @media (max-width: 768px) {
@@ -35,8 +36,8 @@
 
 .container {
 	text-align: left;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
 }
 
 @media (min-width: 576px) {
@@ -77,19 +78,19 @@
 
 	background-color: #202072;
 	color: #FFFFFF;
-	padding-top: 7px;
-	padding-bottom: 7px;
-	font-size: 18px;
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+	font-size: 1.2rem;
 }
 
 .navbar-span {
-	margin-right: 15px;
+	margin-right: 1rem;
 }
 
 .navbar-span-right {
 	position: fixed;
-	top: 7px;
-	right: 15px;
+	top: 0.7rem;
+	right: 1.0rem;
 }
 
 .navigation-bar-hidden {
@@ -98,21 +99,20 @@
 	top: 0px;
 	right: 0px;
 
-	padding-top: 7px;
-	padding-bottom: 7px;
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
 
 	background-color: #202072;
 	color: #FFFFFF;
-	font-size: 18px;
+	font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
 	.navbar-span {
 		display: block;
-		margin: 5px;
-		float: left;
+		margin: 0.7rem;
 	}
 }
 
@@ -154,12 +154,14 @@
 .title-format {
 	width: 100%;
 	text-align: center;
+	font-size: 3rem;
 }
 
 .subtitle {
 	width: 50%;
 	text-align: center;
 	float: left;
+	font-size: 2rem;
 }
 
 /* Usage Tables */
@@ -167,8 +169,8 @@
 .usage-table {
 	width: 100%;
 	border-collapse: collapse;
-	font-size: 18px;
-	margin-bottom: 15px;
+	font-size: 1.3rem;
+	margin-bottom: 1.2rem;
 }
 
 .usage-table tr {
@@ -231,7 +233,12 @@
 
 .poke-link {
 	font-weight: bold;
-	margin-left: 15px;
+	margin-left: 1.2rem;
+}
+
+.item-link {
+	font-weight: bold;
+	margin-left: 1.2rem;
 }
 
 .poke-icon {
@@ -241,4 +248,27 @@
     width: 40px;
     height: 30px;
     margin-top: -3px;
+}
+
+.item-icon {
+    content: '';
+	display: inline-block;
+	float:left;
+    width: 24px;
+    height: 24px;
+    margin-top: -3px;
+}
+
+.type-image {
+	display: inline-block;
+	margin-left: 1.2rem;
+	height: 1rem;
+	width: auto;
+}
+
+.category-image {
+	display: inline-block;
+	margin-left: 0.3rem;
+	height: 1rem;
+	width: auto;
 }

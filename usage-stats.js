@@ -105,6 +105,12 @@ Program.command('test <port>')
 		require(Path.resolve(__dirname, "server.js")).start(parseInt(port));
 	});
 
+Program.command('simple-export <month> <json-formats-file> <output-file>')
+	.description('exports a simplified version of usage stats')
+	.action((month, ff, outFile) => {
+		require(Path.resolve(__dirname, "updater", "export.js")).start(month, Path.resolve(__dirname, ff), Path.resolve(__dirname, outFile));
+	});
+
 
 /* Parse and Start */
 

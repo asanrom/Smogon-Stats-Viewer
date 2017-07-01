@@ -4,11 +4,11 @@
 
 const Path = require('path');
 const FileSystem = require('fs');
-const Http = require('http');
+const Http = require('https');
 const Parser = require(Path.resolve(__dirname, "parse-file.js"));
 const Loader = require(Path.resolve(__dirname, "load-format.js"));
 
-const Smogon_Stats_URL = "http://www.smogon.com/stats/";
+const Smogon_Stats_URL = "https://www.smogon.com/stats/";
 
 function wget(url, callback) {
 	Http.get(url, res => {
