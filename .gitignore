@@ -1,6 +1,5 @@
 # Logs
 logs
-data
 temp
 *.log
 npm-debug.log*
