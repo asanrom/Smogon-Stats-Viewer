@@ -1,7 +1,7 @@
 Smogon Usage Stats Viewer
 ====================
 
-This project is a viewer of [Pokemon Usage Stats (Smogon)](http://www.smogon.com/stats/) made in HTML5, CSS3 and Javascript. You can use it to visualize Smogon stats in a more visual (they are displayed in text files) and sorted format. 
+This project is a viewer of [Pokemon Usage Stats (Smogon)](http://www.smogon.com/stats/) made in HTML5, CSS3 and Javascript. You can use it to visualize Smogon stats in a more visual (they are displayed as text files) and sorted format. 
 
 Installation
 ------------
