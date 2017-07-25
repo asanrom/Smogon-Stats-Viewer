@@ -335,7 +335,7 @@ window.UsageViewer = {
 		if (!detail) {
 			buf += '<div align="center"><h1>Not Found: &quot;' + escapeHTML(this.poke) + '&quot;</h1></div>';
 			buf += '<p class="poke-option-link"><a name="back-link" href="' + this.getPokeHref(null) + '">&lt;&lt; Back to the pokemon list</a></p>';
-			buf += '<hr width="100%" />';
+			buf += '<br /><br />';
 			this.setHTML(buf);
 			return;
 		}
@@ -346,7 +346,7 @@ window.UsageViewer = {
 		buf += '<h2 class="poke-title">#' + detail.pos + ', ' + escapeHTML(detail.usage.name) + '</h2>';
 		buf += '<p class="poke-option-link" style="text-align:right;"><a href="http://dex.pokemonshowdown.com/pokemon/' +
 			this.poke + '" target="_blank">Go to the Pokedex</a></p></div>';
-		buf += '<hr width="100%" />';
+		buf += '<br /><br />';
 		
 		/* Usage */
 		buf += '<table class="usage-table" border="0">';
