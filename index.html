@@ -7,6 +7,8 @@
 		
 		<script type="text/javascript" src="./js/lib/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="./js/lib/pokedex-min.js"></script>
+		<script type="text/javascript" src="./js/lib/moves-min.js"></script>
+		<script type="text/javascript" src="./js/lib/items-min.js"></script>
 		<script type="text/javascript" src="./resources/names-min.js"></script>
 		<script type="text/javascript" src="./js/tools-min.js"></script>
 		<script type="text/javascript" src="./js/navbar-min.js"></script>
@@ -25,34 +27,31 @@
 		<div id="navigation-bar" class="navigation-bar" align="center">
 			<div class="container">
 				<span class="navbar-span">
-					Month:&nbsp;
-					<select id="select-month" class="navbar-select" onchange="UsageViewer.onChangeSelectedMonth();">
+					<span class="option-title">Month:</span>&nbsp;&nbsp;
+					<select id="select-month" class="navbar-select" onchange="UsageViewer.onChangeSelectedMonth();UsageViewer.viewStats();">
 						<option value="">&lt;Select a month&gt;</option>
 					</select>
 				</span>
 				<span class="navbar-span">
-					Format:&nbsp;
-					<select id="select-format" class="navbar-select" onchange="UsageViewer.onChangeSelectedFormat();">
+					<span class="option-title">Format:</span>&nbsp;
+					<select id="select-format" class="navbar-select" onchange="UsageViewer.onChangeSelectedFormat();UsageViewer.viewStats();">
 						<option value="">&lt;Select a format&gt;</option>
 					</select>
 				</span>
 				<span class="navbar-span">
-					Cutline:&nbsp;
-					<select id="select-cutline" class="navbar-select">
+					<span class="option-title">Cutline:</span>&nbsp;
+					<select id="select-cutline" class="navbar-select" onchange="UsageViewer.viewStats();">
 						<option value="">&lt;Rank&gt;</option>
 					</select>
 				</span>
-				<span class="navbar-span">
-					<button id="navbar-go-button" onclick="UsageViewer.viewStats();">Set Params</button>
-				</span>
 				<span class="navbar-span-right">
-					<button id="navbar-hide-button" onclick="NavigationBar.hide();">Collapse</button>
+					<button title="Collapse navigation bar" id="navbar-hide-button" onclick="NavigationBar.hide();"><b>-</b></button>
 				</span>
 			</div>
 		</div>
 
 		<div id="navigation-bar-hidden" class="navigation-bar-hidden">
-			<button id="navbar-show-button" onclick="NavigationBar.show();">Expand</button>
+			<button title="Expand navigation bar" id="navbar-show-button" onclick="NavigationBar.show();"><b>+</b></button>
 		</div>
 
 		<div class="page-body" align="center">

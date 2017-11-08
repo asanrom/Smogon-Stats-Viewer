@@ -60,3 +60,27 @@ for (let poke in pokedex) {
 }
 
 FileSystem.writeFileSync(Pokedex_File_Min, "window.BattlePokedex = " + JSON.stringify(newPokedex) + ";");
+
+const Movedex_File = Path.resolve(__dirname, "js/lib/moves.js");
+const Movedex_File_Min = Path.resolve(__dirname, "js/lib/moves-min.js");
+
+let movedex = require(Movedex_File).BattleMovedex;
+let newMovedex = {};
+
+for (let move in movedex) {
+	newMovedex[move] = {num: movedex[move].num, type: movedex[move].type};
+}
+
+FileSystem.writeFileSync(Movedex_File_Min, "window.BattleMovedex = " + JSON.stringify(newMovedex) + ";");
+
+const Items_File = Path.resolve(__dirname, "js/lib/items.js");
+const Items_File_Min = Path.resolve(__dirname, "js/lib/items-min.js");
+
+let items = require(Items_File).BattleItems;
+let newItems = {};
+
+for (let item in items) {
+	newItems[item] = {spritenum: items[item].spritenum};
+}
+
+FileSystem.writeFileSync(Items_File_Min, "window.BattleItems = " + JSON.stringify(newItems) + ";");

@@ -390,5 +390,123 @@ window.Tools = {
 	},
 	getMiniSprite: function(pokemon) {
 		return '<div class="poke-icon" style="' + this.getPokemonIcon(pokemon) + '"></div>';
-	}
+	},
+	getItemIcon: function (item) {
+		var num = 0;
+		if (typeof item === 'string' && window.BattleItems) item = window.BattleItems[toId(item)];
+		if (item && item.spritenum) num = item.spritenum;
+
+		var top = Math.floor(num / 16) * 24;
+		var left = (num % 16) * 24;
+		return 'background:transparent url(./resources/itemicons-sheet.png) no-repeat scroll -' + left + 'px -' + top + 'px';
+	},
+	getItemSprite: function(item) {
+		return '<div class="item-icon" style="' + this.getItemIcon(item) + '"></div>';
+	},
+	getTypeSprite: function (name) {
+		if (name == "???") {
+			return '<img class="type-image" title="' + name + '" width="32px" height="14px" src="' + 'http://play.pokemonshowdown.com/sprites/types/%3f%3f%3f.png' + '" />';
+		} else {
+			return '<img class="type-image" title="' + name + '" width="32px" height="14px" src="' + 'http://play.pokemonshowdown.com/sprites/types/' + name + '.png' + '" />';
+		}
+	},
+	getMoveTypeSprite: function (name) {
+		var type = "???";
+		name = toId(name);
+		if (window.BattleMovedex[name]) {
+			type = window.BattleMovedex[name].type;
+		}
+		return this.getTypeSprite(type);
+	},
+	getMoveLink: function (move) {
+		if (toId(move) === "other") {
+			return escapeHTML(move);
+		}
+		return '<a href="http://dex.pokemonshowdown.com/moves/' + toId(move) + '" target="_blank">' + escapeHTML(move) + "</a>";
+	},
+	getItemLink: function (item) {
+		if (toId(item) === "other") {
+			return '<span class="item-link">' + escapeHTML(item) + '</span>';
+		}
+		return '<a href="http://dex.pokemonshowdown.com/items/' + toId(item) + '" class="item-link" target="_blank">' + escapeHTML(item) + "</a>";
+	},
+	getAbilityLink: function (ability) {
+		if (toId(ability) === "other") {
+			return escapeHTML(ability);
+		}
+		return '<a href="http://dex.pokemonshowdown.com/abilities/' + toId(ability) + '" target="_blank">' + escapeHTML(ability) + "</a>";
+	},
+	getNatureSpan: function (nature) {
+		var help = "???";
+		switch (toId(nature)) {
+			case "adamant":
+				help = "+Attack, -Sp. Attack";
+				break;
+			case "bold":
+				help = "+Defense, -Attack";
+				break;
+			case "brave":
+				help = "+Attack, -Speed";
+				break;
+			case "calm":
+				help = "+Sp. Defense, -Attack";
+				break;
+			case "careful":
+				help = "+Sp. Defense, -Sp. Attack";
+				break;
+			case "gentle":
+				help = "+Sp. Defense, -Defense";
+				break;
+			case "hasty":
+				help = "+Speed, -Defense";
+				break;
+			case "impish":
+				help = "+Defense, -Sp. Attack";
+				break;
+			case "jolly":
+				help = "+Speed, -Sp. Attack";
+				break;
+			case "lax":
+				help = "+Defense, -Sp. Defense";
+				break;
+			case "lonely":
+				help = "+Attack, -Defense";
+				break;
+			case "mild":
+				help = "+Sp. Attack, -Defense";
+				break;
+			case "modest":
+				help = "+Sp. Attack, -Attack";
+				break;
+			case "naive":
+				help = "+Speed, -Sp. Defense";
+				break;
+			case "naughty":
+				help = "+Attack, -Sp. Defense";
+				break;
+			case "quiet":
+				help = "+Sp. Attack, -Speed";
+				break;
+			case "rash":
+				help = "+Sp. Attack, -Sp. Defense";
+				break;
+			case "relaxed":
+				help = "+Defense, -Speed";
+				break;
+			case "sassy":
+				help = "+Sp. Defense, -Speed";
+				break;
+			case "timid":
+				help = "+Speed, -Attack";
+				break;
+			case "bashful":
+			case "docile":
+			case "hardy":
+			case "serious":
+			case "quirky":
+				help = "Neutral";
+				break;
+		}
+		return '<span title="' + help + '">' + escapeHTML(nature) + '</span>';
+	},
 };
