@@ -382,6 +382,7 @@ window.UsageViewer = {
 			for (var i = 0; i < detail.data.moves.length; i++) {
 				buf += '<tr><td class="td-bold">' + Tools.getMoveLink(detail.data.moves[i].name) +
 					' ' + Tools.getMoveTypeSprite(detail.data.moves[i].name) + 
+					' ' + Tools.getMoveCategorySprite(detail.data.moves[i].name) +
 					'</td><td class="usage-percent-td">' + Tools.decimalFormat(detail.data.moves[i].usage, 2, 2) + '%</td></tr>';
 			}
 		}
